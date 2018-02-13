@@ -83,10 +83,77 @@
             echo 'Error in insert: ', mysqli_error($connection);
         }
 
-
         mysqli_close($connection); // Closing Connection with Server
 
-        header('Location: thankyou.html');
+	$pieces = explode(",", $results1);
+
+	readfile("thankyou_header.html");
+	
+	echo "Your violin evaluation results from worst to best:"
+	echo "<br><br>"
+
+	foreach($pieces as &$value) {
+		switch ($value) {
+    	       	       case 'D00':
+               	       	    echo "Stradivari 1679 Hellier";
+			    echo "<br>"
+        	    	    break;
+		       case 'D01':
+               	       	    echo "Stradivari 1690 Auer";
+			    echo "<br>"
+        	    	    break;
+    	       	       case 'D02':
+               	       	    echo "Stradivari 1692 Oliveira";
+			    echo "<br>"
+        	    	    break;
+		       case 'D03':
+               	       	    echo "Stradivari 1701 Dushkin";
+			    echo "<br>"
+        	    	    break;
+		       case 'D04':
+               	       	    echo "Stradivari 1707 La Cathedrale";
+			    echo "<br>"
+        	    	    break;
+		       case 'D05':
+               	       	    echo "Stradivari 1708 Ruby";
+			    echo "<br>"
+        	    	    break;
+		       case 'D06':
+               	       	    echo "Stradivari 1710 Vieuxtemps, Hauser";
+			    echo "<br>"
+        	    	    break;
+		       case 'D07':
+               	       	    echo "Stradivari 1709 King Maximilian";
+			    echo "<br>"
+        	    	    break;
+		       case 'D08':
+               	       	    echo "Stradivari 1715 Baron Knoop";
+			    echo "<br>"
+        	    	    break;
+		       case 'D09':
+               	       	    echo "Stradivari 1722 Jupiter";
+			    echo "<br>"
+        	    	    break;
+		       case 'D10':
+               	       	    echo "Stradivari 1723 Kiesewetter";
+			    echo "<br>"
+        	    	    break;
+	               case 'D11':
+               	       	    echo "Stradivari 1727 Dupont";
+			    echo "<br>"
+        	    	    break;
+		       case 'D12':
+               	       	    echo "Stradivari 1734 Willemotte";
+			    echo "<br>"
+        	    	    break;
+		       case 'D13':
+               	       	    echo "Stradivari 1736 Muntz";
+			    echo "<br>"
+        	    	    break;
+		}
+	}
+	
+        readfile('thankyou_footer.html');
         
         exit();
         }
