@@ -1,0 +1,180 @@
+	  
+	  h6 {
+	  font-style: normal;
+	  font-size: 40px;
+	  margin:1px 0;
+	  }
+
+	  .testbox {
+	  margin: 20px 20px 20px 20px;
+	  padding: 20px;
+	  border-style: solid;
+	  border-radius: 5px;
+	  width: 1080px;
+	  background: rgba(218,235,251,1);
+	  background: -moz-linear-gradient(left, rgba(218,235,251,1) 0%, rgba(154,196,244,1) 100%);
+	  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(218,235,251,1)), color-stop(100%, rgba(154,196,244,1)));
+	  background: -webkit-linear-gradient(left, rgba(218,235,251,1) 0%, rgba(154,196,244,1) 100%);
+	  background: -o-linear-gradient(left, rgba(218,235,251,1) 0%, rgba(154,196,244,1) 100%);
+	  background: -ms-linear-gradient(left, rgba(218,235,251,1) 0%, rgba(154,196,244,1) 100%);
+	  background: linear-gradient(to right, rgba(218,235,251,1) 0%, rgba(154,196,244,1) 100%);
+	  }
+
+	  .guide_left {
+	  display:inline-block;
+	  }
+
+	  .guide_right {
+	  margin: 20px 20px 20px 20px;
+	  display:inline-block;
+	  }
+	  
+          .totalbutton {
+	  position: relative;
+	  height: 250px;
+	  width: 50px;
+	  border-radius: 5px;
+	  z-index: 10;
+	  }
+
+	  .buttonidentity {
+	  position: relative;
+	  height: 20%;
+	  width: 100%;
+	  border-radius: 5px;
+	  z-index: 11;
+	  background-color: rgba(255,95,54,1);
+	  border: 1px solid black;
+	  }
+	  
+	  .buttonidentity .inner {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  text-align:center;
+	  vertical-align:middle;
+	  display:inline-block;
+	  }
+	  
+	  .playbutton {
+	  position: relative;
+	  height: 20%;
+	  width: 100%;
+	  border-radius: 5px;
+	  z-index: 11;
+	  background-color: rgba(189,49,232,1);
+	  border: 1px solid black;
+	  border-top-style: none;
+	  display: table;
+	  vertical-align: middle;
+	  }
+	  
+	  .playbutton .inner {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  text-align:center;
+	  vertical-align:middle;
+	  display:inline-block;
+	  margin: 7px 7px 7px 7px;
+	  }
+
+	  .playbutton2 {
+	  position: relative;
+	  height: 20%;
+	  width: 100%;
+	  border-radius: 5px;
+	  z-index: 11;
+	  background-color: rgba(67,139,255,1);
+	  border: 1px solid black;
+	  border-top-style: none;
+	  display: table;
+	  vertical-align: middle;
+	  }
+	  
+	  .playbutton2 .inner {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  text-align:center;
+	  vertical-align:middle;
+	  display:inline-block;
+	  margin: 7px 7px 7px 7px;
+	  }
+
+	  .playbutton3 {
+	  position: relative;
+	  height: 20%;
+	  width: 100%;
+	  border-radius: 5px;
+	  z-index: 11;
+	  background-color: rgba(49,232,133,1);
+	  border: 1px solid black;
+	  border-top-style: none;
+	  display: table;
+	  vertical-align: middle;
+	  }
+	  
+	  .playbutton3 .inner {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  text-align:center;
+	  vertical-align:middle;
+	  display:inline-block;
+	  margin: 7px 7px 7px 7px;
+	  }
+
+	  .notebutton {
+	  position: relative;
+	  height: 20%;
+	  width: 100%;
+	  border-radius: 5px;
+	  z-index: 11;
+	  background-color: rgba(248,255,166,1);
+	  border: 1px solid black;
+	  border-top-style: none;
+	  display: table;
+	  vertical-align: middle;
+	  }
+	  
+	  .notebutton .inner {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  text-align:center;
+	  vertical-align:middle;
+	  display:inline-block;
+	  margin: 50px 50px 0px 0px;
+	  }
+
+	  .notebutton .inner2 {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  text-align:center;
+	  vertical-align:middle;
+	  display:inline-block;
+	  margin: 0px 0px 0px 0px;
+	  padding: 5px 5px 5px 5px;
+	  }
+
+          textarea {
+              display: block;
+          }
+          
+	  #sortable { list-style-type: none; margin: 0; padding: 0; font-size: 0}
+	  #sortable li { display: inline-block; margin: 0 3px 3px 3px; padding-left: 10px; padding-right: 10px;}
+
