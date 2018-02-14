@@ -154,7 +154,37 @@
 	}
 
         echo "<br>";
+
+        echo $_POST['tf1text'];
+        echo "<br>";
+        echo $_POST['tf2text'];
+        echo "<br>";
+                echo $_POST['tf3text'];
+        echo "<br>";
+                echo $_POST['tf4text'];
+        echo "<br>";
+                echo $_POST['tf5text'];
+        echo "<br>";
+                echo $_POST['tf6text'];
+        echo "<br>";
+                echo $_POST['tf7text'];
+        echo "<br>";
+                echo $_POST['tf8text'];
+        echo "<br>";
+                echo $_POST['tf9text'];
+        echo "<br>";
+                echo $_POST['tf10text'];
+        echo "<br>";
+                echo $_POST['tf11text'];
+        echo "<br>";
+                echo $_POST['tf12text'];
+        echo "<br>";
+                echo $_POST['tf13text'];
+        echo "<br>";
+                echo $_POST['tf14text'];
+        echo "<br>";
         
+
         readfile('thankyou_footer.html');
         
         }
