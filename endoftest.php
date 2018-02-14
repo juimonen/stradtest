@@ -155,33 +155,49 @@
 
         echo "<br>";
 
-        echo $_POST['tf1text'];
+$tf1text = $_POST['tf1textname'];
+$tf2text = $_POST['tf2textnamae'];
+$tf3text = $_POST['tf3textname'];
+$tf4text = $_POST['tf4textname'];
+$tf5text = $_POST['tf5textname'];
+$tf6text = $_POST['tf6textname'];
+$tf7text = $_POST['tf7textname'];
+$tf8text = $_POST['tf8textname'];
+$tf9text = $_POST['tf9textname'];
+$tf10text = $_POST['t101textname'];
+$tf11text = $_POST['tf11textname'];
+$tf12text = $_POST['tf12textname'];
+$tf13xtext = $_POST['tf13textnamae'];
+$tf14xtext = $_POST['tf14textname'];
+
+
+        echo $tf1text;
         echo "<br>";
-        echo $_POST['tf2text'];
+        echo $tf2text;
         echo "<br>";
-                echo $_POST['tf3text'];
+                echo $tf3text;
         echo "<br>";
-                echo $_POST['tf4text'];
+                echo $tf4text;
         echo "<br>";
-                echo $_POST['tf5text'];
+                echo $tf5text;
         echo "<br>";
-                echo $_POST['tf6text'];
+                echo $tf6text;
         echo "<br>";
-                echo $_POST['tf7text'];
+                echo $tf7text;
         echo "<br>";
-                echo $_POST['tf8text'];
+                echo $tf8text;
         echo "<br>";
-                echo $_POST['tf9text'];
+                echo $tf9text;
         echo "<br>";
-                echo $_POST['tf10text'];
+                echo $tf10text;
         echo "<br>";
-                echo $_POST['tf11text'];
+                echo $tf11text;
         echo "<br>";
-                echo $_POST['tf12text'];
+                echo $tf12text;
         echo "<br>";
-                echo $_POST['tf13text'];
+                echo $tf13text;
         echo "<br>";
-                echo $_POST['tf14text'];
+                echo $tf14text;
         echo "<br>";
         
 
