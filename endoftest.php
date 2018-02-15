@@ -41,6 +41,21 @@
 	   $freeComments = $_POST['freeComments'];
            $freeComments = mysqli_real_escape_string($freeComments);
 
+           $tf1text = $_POST['tf1textname'];
+           $tf2text = $_POST['tf2textname'];
+           $tf3text = $_POST['tf3textname'];
+           $tf4text = $_POST['tf4textname'];
+           $tf5text = $_POST['tf5textname'];
+           $tf6text = $_POST['tf6textname'];
+           $tf7text = $_POST['tf7textname'];
+           $tf8text = $_POST['tf8textname'];
+           $tf9text = $_POST['tf9textname'];
+           $tf10text = $_POST['tf10textname'];
+           $tf11text = $_POST['tf11textname'];
+           $tf12text = $_POST['tf12textname'];
+           $tf13text = $_POST['tf13textname'];
+           $tf14text = $_POST['tf14textname'];
+
            if(!mysqli_query($connection, "insert into answers_stradtest(
                                                      answer_age,
                                                      answer_instrumentTraining, 
@@ -55,6 +70,20 @@
                                                      answer_none,
                                                      answer_comments,
                                                      answer_results1,
+                                                     D00comments,
+                                                     D01comments,
+                                                     D02comments,
+                                                     D03comments,
+                                                     D04comments,
+                                                     D05comments,
+                                                     D06comments,
+                                                     D07comments,
+                                                     D08comments,
+                                                     D09comments,
+                                                     D10comments,
+                                                     D11comments,
+                                                     D12comments,
+                                                     D13comments,
                                                      answer_secondsTaken ) 
                                                      values ( '$age',
                                                               '$instrumentTraining', 
@@ -69,6 +98,20 @@
                                                               '$none',
                                                               '$comments',
                                                               '$results1',
+                                                              '$tf1text',
+                                                              '$tf2text',
+                                                              '$tf3text',
+                                                              '$tf4text',
+                                                              '$tf5text',
+                                                              '$tf6text',
+                                                              '$tf7text',
+                                                              '$tf8text',
+                                                              '$tf9text',
+                                                              '$tf10text',
+                                                              '$tf11text',
+                                                              '$tf12text',
+                                                              '$tf13text',
+                                                              '$tf14text',
                                                               '$secondsTaken')"))
 
         {
@@ -153,53 +196,7 @@
 		}
 	}
 
-        echo "<br>";
-
-$tf1text = $_POST['tf1textname'];
-$tf2text = $_POST['tf2textnamae'];
-$tf3text = $_POST['tf3textname'];
-$tf4text = $_POST['tf4textname'];
-$tf5text = $_POST['tf5textname'];
-$tf6text = $_POST['tf6textname'];
-$tf7text = $_POST['tf7textname'];
-$tf8text = $_POST['tf8textname'];
-$tf9text = $_POST['tf9textname'];
-$tf10text = $_POST['t101textname'];
-$tf11text = $_POST['tf11textname'];
-$tf12text = $_POST['tf12textname'];
-$tf13xtext = $_POST['tf13textnamae'];
-$tf14xtext = $_POST['tf14textname'];
-
-
-        echo $tf1text;
-        echo "<br>";
-        echo $tf2text;
-        echo "<br>";
-                echo $tf3text;
-        echo "<br>";
-                echo $tf4text;
-        echo "<br>";
-                echo $tf5text;
-        echo "<br>";
-                echo $tf6text;
-        echo "<br>";
-                echo $tf7text;
-        echo "<br>";
-                echo $tf8text;
-        echo "<br>";
-                echo $tf9text;
-        echo "<br>";
-                echo $tf10text;
-        echo "<br>";
-                echo $tf11text;
-        echo "<br>";
-                echo $tf12text;
-        echo "<br>";
-                echo $tf13text;
-        echo "<br>";
-                echo $tf14text;
-        echo "<br>";
-        
+        echo "<br>";        
 
         readfile('thankyou_footer.html');
         
