@@ -10,22 +10,6 @@
 
 	<link rel="stylesheet" type="text/css" href="stradstyle.css">
 
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/b.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/c.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/d.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/e.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/f.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/g.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/h.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/i.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/j.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/k.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/l.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/m.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/n.wav" as="audio" type="audio/wav">
-	<link rel="preload" href="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/o.wav" as="audio" type="audio/wav">
-
         <script>
 	  $(function() {
 	  $( "#sortable" ).sortable();
@@ -67,7 +51,112 @@
           "drag the samplebox and place it back in the " +
           "line. To the bottom you can write notes. Your task is to place the sample columns in " +
           "order from right to left based on how good " +
-          "you consider the samples you hear."); }
+        "you consider the samples you hear."); }
+
+        function BufferLoader(context, urlList, callback) {
+  this.context = context;
+  this.urlList = urlList;
+  this.onload = callback;
+  this.bufferList = new Array();
+  this.loadCount = 0;
+}
+
+BufferLoader.prototype.loadBuffer = function(url, index) {
+  // Load buffer asynchronously
+  var request = new XMLHttpRequest();
+  request.open("GET", url, true);
+  request.responseType = "arraybuffer";
+
+  var loader = this;
+
+  request.onload = function() {
+    // Asynchronously decode the audio file data in request.response
+    loader.context.decodeAudioData(
+      request.response,
+      function(buffer) {
+        if (!buffer) {
+          alert('error decoding file data: ' + url);
+          return;
+        }
+        loader.bufferList[index] = buffer;
+        if (++loader.loadCount == loader.urlList.length)
+          loader.onload(loader.bufferList);
+      },
+      function(error) {
+        console.error('decodeAudioData error', error);
+      }
+    );
+  }
+
+  request.onerror = function() {
+    alert('BufferLoader: XHR error');
+  }
+
+  request.send();
+}
+
+BufferLoader.prototype.load = function() {
+  for (var i = 0; i < this.urlList.length; ++i)
+  this.loadBuffer(this.urlList[i], i);
+                      }
+                      
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        context = new AudioContext();
+
+        bufferLoader = new BufferLoader(
+        context,
+        [
+        'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav',
+        'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/b.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/c.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/d.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/e.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/f.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/g.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/h.wav',
+        'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/i.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/j.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/k.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/l.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/m.wav',
+	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/n.wav',
+        ],
+        finishedLoading
+        );
+
+        bufferLoader.load();
+
+        function finishedLoading(bufferList) {
+        var source1 = context.createBufferSource();
+        var source2 = context.createBufferSource();
+        var source3 = context.createBufferSource();
+        var source4 = context.createBufferSource();
+        var source5 = context.createBufferSource();
+        var source6 = context.createBufferSource();
+        var source7 = context.createBufferSource();
+        var source8 = context.createBufferSource();
+        var source9 = context.createBufferSource();
+        var source10 = context.createBufferSource();
+        var source11 = context.createBufferSource();
+        var source12 = context.createBufferSource();
+        var source13 = context.createBufferSource();
+        var source14 = context.createBufferSource();
+        
+        source1.buffer = bufferList[0];
+        source2.buffer = bufferList[1];
+        source3.buffer = bufferList[2];
+        source4.buffer = bufferList[3];
+        source5.buffer = bufferList[4];
+        source6.buffer = bufferList[5];
+        source7.buffer = bufferList[6];
+        source8.buffer = bufferList[7];
+        source9.buffer = bufferList[8];
+        source10.buffer = bufferList[9];
+        source11.buffer = bufferList[10];
+        source12.buffer = bufferList[11];
+        source13.buffer = bufferList[12];
+        source14.buffer = bufferList[13];
+        }
         </script>
 
     </head>
@@ -262,15 +351,15 @@
 		    </span>
 		    <div class="playbutton" id="tb1_sample">
 		      <div class="inner">
-			<audio preload="auto" id="tb1_samplesample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
+			<audio id="tb1_samplesample">
+			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav" type="audio/wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc1_sample">
 		      <div class="inner">
-			<audio preload="auto" id="tc1_samplesample">
+			<audio id="tc1_samplesample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -278,7 +367,7 @@
 		    </div>
 		    <div class="playbutton3" id="td1_sample">
 		      <div class="inner">
-			<audio preload="auto" id="td1_samplesample">
+			<audio id="td1_samplesample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -329,7 +418,7 @@
 		    </span>
 		    <div class="playbutton" id="tb1">
 		      <div class="inner">
-			<audio preload="auto" id="tb1sample">
+			<audio id="tb1sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -337,7 +426,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc1">
 		      <div class="inner">
-			<audio preload="auto" id="tc1sample">
+			<audio id="tc1sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -345,7 +434,7 @@
 		    </div>
 		    <div class="playbutton3" id="td1">
 		      <div class="inner">
-			<audio preload="auto" id="td1sample">
+			<audio id="td1sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -373,7 +462,7 @@
 		    </span>
 		    <div class="playbutton" id="tb2">
 		      <div class="inner">
-			<audio preload="auto" id="tb2sample">
+			<audio id="tb2sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/b.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -381,7 +470,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc2">
 		      <div class="inner">
-			<audio preload="auto" id="tc2sample">
+			<audio id="tc2sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/b.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -389,7 +478,7 @@
 		    </div>
 		    <div class="playbutton3" id="td2">
 		      <div class="inner">
-			<audio preload="auto" id="td2sample">
+			<audio id="td2sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/b.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -417,7 +506,7 @@
 		    </span>
 		    <div class="playbutton" id="tb3">
 		      <div class="inner">
-			<audio preload="auto" id="tb3sample">
+			<audio id="tb3sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/c.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -425,7 +514,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc3">
 		      <div class="inner">
-			<audio preload="auto" id="tc3sample">
+			<audio id="tc3sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/c.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -433,7 +522,7 @@
 		    </div>
 		    <div class="playbutton3" id="td3">
 		      <div class="inner">
-			<audio preload="auto" id="td3sample">
+			<audio id="td3sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/c.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -461,7 +550,7 @@
 		    </span>
 		    <div class="playbutton" id="tb4">
 		      <div class="inner">
-			<audio preload="auto" id="tb4sample">
+			<audio id="tb4sample">
 			<source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/d.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -469,15 +558,15 @@
 		    </div>
 		    <div class="playbutton2" id="tc4">
 		      <div class="inner">
-			<audio preload="auto" id="tc4sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/b.wav">
+			<audio id="tc4sample">
+			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/d.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td4">
 		      <div class="inner">
-			<audio preload="auto" id="td4sample">
+			<audio id="td4sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/d.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -505,7 +594,7 @@
 		    </span>
 		    <div class="playbutton" id="tb5">
 		      <div class="inner">
-			<audio preload="auto" id="tb5sample">
+			<audio id="tb5sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/e.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -513,7 +602,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc5">
 		      <div class="inner">
-			<audio preload="auto" id="tc5sample">
+			<audio id="tc5sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/e.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -521,7 +610,7 @@
 		    </div>
 		    <div class="playbutton3" id="td5">
 		      <div class="inner">
-			<audio preload="auto" id="td5sample">
+			<audio id="td5sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/e.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -549,7 +638,7 @@
 		    </span>
 		    <div class="playbutton" id="tb6">
 		      <div class="inner">
-			<audio preload="auto" id="tb6sample">
+			<audio id="tb6sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/f.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -557,7 +646,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc6">
 		      <div class="inner">
-			<audio preload="auto" id="tc6sample">
+			<audio id="tc6sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/f.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -565,7 +654,7 @@
 		    </div>
 		    <div class="playbutton3" id="td6">
 		      <div class="inner">
-			<audio preload="auto" id="td6sample">
+			<audio id="td6sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/f.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -593,7 +682,7 @@
 		    </span>
 		    <div class="playbutton" id="tb7">
 		      <div class="inner">
-			<audio preload="auto" id="tb7sample">
+			<audio id="tb7sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/g.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -601,7 +690,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc7">
 		      <div class="inner">
-			<audio preload="auto" id="tc7sample">
+			<audio id="tc7sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/g.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -609,7 +698,7 @@
 		    </div>
 		    <div class="playbutton3" id="td7">
 		      <div class="inner">
-			<audio preload="auto" id="td7sample">
+			<audio id="td7sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/g.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -637,7 +726,7 @@
 		    </span>
 		    <div class="playbutton" id="tb8">
 		      <div class="inner">
-			<audio preload="auto" id="tb8sample">
+			<audio id="tb8sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/h.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -645,7 +734,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc8">
 		      <div class="inner">
-			<audio preload="auto" id="tc8sample">
+			<audio id="tc8sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/h.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -653,7 +742,7 @@
 		    </div>
 		    <div class="playbutton3" id="td8">
 		      <div class="inner">
-			<audio preload="auto" id="td8sample">
+			<audio id="td8sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/h.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -681,7 +770,7 @@
 		    </span>
 		    <div class="playbutton" id="tb9">
 		      <div class="inner">
-			<audio preload="auto" id="tb9sample">
+			<audio id="tb9sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/i.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -689,7 +778,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc9">
 		      <div class="inner">
-			<audio preload="auto" id="tc9sample">
+			<audio id="tc9sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/i.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -697,7 +786,7 @@
 		    </div>
 		    <div class="playbutton3" id="td9">
 		      <div class="inner">
-			<audio preload="auto" id="td9sample">
+			<audio id="td9sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/i.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -725,7 +814,7 @@
 		    </span>
 		    <div class="playbutton" id="tb10">
 		      <div class="inner">
-			<audio preload="auto" id="tb10sample">
+			<audio id="tb10sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/j.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -733,7 +822,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc10">
 		      <div class="inner">
-			<audio preload="auto" id="tc10sample">
+			<audio id="tc10sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/j.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -741,7 +830,7 @@
 		    </div>
 		    <div class="playbutton3" id="td10">
 		      <div class="inner">
-			<audio preload="auto" id="td10sample">
+			<audio id="td10sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/j.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -769,7 +858,7 @@
 		    </span>
 		    <div class="playbutton" id="tb11">
 		      <div class="inner">
-			<audio preload="auto" id="tb11sample">
+			<audio id="tb11sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/k.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -777,7 +866,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc11">
 		      <div class="inner">
-			<audio preload="auto" id="tc11sample">
+			<audio id="tc11sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/k.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -785,7 +874,7 @@
 		    </div>
 		    <div class="playbutton3" id="td11">
 		      <div class="inner">
-			<audio preload="auto" id="td11sample">
+			<audio id="td11sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/k.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -813,7 +902,7 @@
 		    </span>
 		    <div class="playbutton" id="tb12">
 		      <div class="inner">
-			<audio preload="auto" id="tb12sample">
+			<audio id="tb12sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/l.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -821,7 +910,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc12">
 		      <div class="inner">
-			<audio preload="auto" id="tc12sample">
+			<audio id="tc12sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/l.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -829,7 +918,7 @@
 		    </div>
 		    <div class="playbutton3" id="td12">
 		      <div class="inner">
-			<audio preload="auto" id="td12sample">
+			<audio id="td12sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/l.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -857,7 +946,7 @@
 		    </span>
 		    <div class="playbutton" id="tb13">
 		      <div class="inner">
-			<audio preload="auto" id="tb13sample">
+			<audio id="tb13sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/m.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -865,7 +954,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc13">
 		      <div class="inner">
-			<audio preload="auto" id="tc13sample">
+			<audio id="tc13sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/m.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -873,7 +962,7 @@
 		    </div>
 		    <div class="playbutton3" id="td13">
 		      <div class="inner">
-			<audio preload="auto" id="td13sample">
+			<audio id="td13sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/m.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -901,7 +990,7 @@
 		    </span>
 		    <div class="playbutton" id="tb14">
 		      <div class="inner">
-			<audio preload="auto" id="tb14sample">
+			<audio id="tb14sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/n.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -909,7 +998,7 @@
 		    </div>
 		    <div class="playbutton2" id="tc14">
 		      <div class="inner">
-			<audio preload="auto" id="tc14sample">
+			<audio id="tc14sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/n.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -917,7 +1006,7 @@
 		    </div>
 		    <div class="playbutton3" id="td14">
 		      <div class="inner">
-			<audio preload="auto" id="td14sample">
+			<audio id="td14sample">
 			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/n.wav">
 			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
@@ -988,12 +1077,14 @@
 		default:
 		document.getElementById(sample).currentTime = 0;
 		}
-		document.getElementById(sample).play();
+		//document.getElementById(sample).play();
+                source1.start(0);
 		}, function(){
 		$(this).css("background-color", "rgba(189,49,232,1)");
 		var sample = $(this).attr('id');
 		sample = sample.concat("sample");
-		document.getElementById(sample).pause();
+		//document.getElementById(sample).pause();
+                source1.stop();
 		document.getElementById(sample).currentTime = 0;
 		});
 

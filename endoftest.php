@@ -39,7 +39,7 @@
            $secondsTaken = $_POST['secondsTaken'];
 
 	   $freeComments = $_POST['freeComments'];
-           $freeComments = mysqli_real_escape_string($freeComments);
+           $freeComments = mysqli_real_escape_string($connection, $freeComments);
 
            $tf1text = $_POST['tf1textname'];
            $tf2text = $_POST['tf2textname'];
