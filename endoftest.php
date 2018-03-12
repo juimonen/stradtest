@@ -22,13 +22,14 @@
 
            $yearsOfTraining = $_POST['yearsOfTraining'];
            $weeklyHoursOfTraining = $_POST['weeklyHoursOfTraining'];
-
-           $professionalMusician = $_POST['professionalMusician'];
-           $musicologistTheorist = $_POST['musicologistTheorist'];
-           $musicTeacher = $_POST['musicTeacher'];
-           $instrumentTeacher = $_POST['instrumentTeacher'];
-           $producer = $_POST['producer'];
-           $none = $_POST['none'];
+	   
+	   $professionalMusician = isset($_POST['professionalMusician']) ? $_POST['professionalMusician'] : 0;
+	   
+	   $musicologistTheorist = isset($_POST['musicologistTheorist']) ? 1 : 0;
+           $musicTeacher = isset($_POST['musicTeacher']) ? 1 : 0;
+	   $instrumentTeacher = isset($_POST['instrumentTeacher']) ? 1 : 0;
+           $producer = isset($_POST['producer']) ? 1 : 0;
+           $none = isset($_POST['none']) ? 1 : 0;
 
            $comments = $_POST['comments'];
            $comments = mysqli_real_escape_string($connection, $comments);
