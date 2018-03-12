@@ -101,25 +101,25 @@ BufferLoader.prototype.load = function() {
                       }
                       
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        context = new AudioContext();
+        audiocontext = new AudioContext();
 
         bufferLoader = new BufferLoader(
-        context,
+        audiocontext,
         [
-        'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav',
-        'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/b.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/c.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/d.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/e.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/f.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/g.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/h.wav',
-        'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/i.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/j.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/k.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/l.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/m.wav',
-	'http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/n.wav',
+        'audio/a.wav',
+        'audio/b.wav',
+	'audio/c.wav',
+	'audio/d.wav',
+	'audio/e.wav',
+	'audio/f.wav',
+	'audio/g.wav',
+	'audio/h.wav',
+        'audio/i.wav',
+	'audio/j.wav',
+	'audio/k.wav',
+	'audio/l.wav',
+	'audio/m.wav',
+	'audio/n.wav',
         ],
         finishedLoading
         );
@@ -127,35 +127,6 @@ BufferLoader.prototype.load = function() {
         bufferLoader.load();
 
         function finishedLoading(bufferList) {
-        var source1 = context.createBufferSource();
-        var source2 = context.createBufferSource();
-        var source3 = context.createBufferSource();
-        var source4 = context.createBufferSource();
-        var source5 = context.createBufferSource();
-        var source6 = context.createBufferSource();
-        var source7 = context.createBufferSource();
-        var source8 = context.createBufferSource();
-        var source9 = context.createBufferSource();
-        var source10 = context.createBufferSource();
-        var source11 = context.createBufferSource();
-        var source12 = context.createBufferSource();
-        var source13 = context.createBufferSource();
-        var source14 = context.createBufferSource();
-        
-        source1.buffer = bufferList[0];
-        source2.buffer = bufferList[1];
-        source3.buffer = bufferList[2];
-        source4.buffer = bufferList[3];
-        source5.buffer = bufferList[4];
-        source6.buffer = bufferList[5];
-        source7.buffer = bufferList[6];
-        source8.buffer = bufferList[7];
-        source9.buffer = bufferList[8];
-        source10.buffer = bufferList[9];
-        source11.buffer = bufferList[10];
-        source12.buffer = bufferList[11];
-        source13.buffer = bufferList[12];
-        source14.buffer = bufferList[13];
         }
         </script>
 
@@ -351,25 +322,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb1_sample">
 		      <div class="inner">
-			<audio id="tb1_samplesample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav" type="audio/wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc1_sample">
 		      <div class="inner">
-			<audio id="tc1_samplesample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td1_sample">
 		      <div class="inner">
-			<audio id="td1_samplesample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -418,25 +380,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb1">
 		      <div class="inner">
-			<audio id="tb1sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc1">
 		      <div class="inner">
-			<audio id="tc1sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td1">
 		      <div class="inner">
-			<audio id="td1sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/a.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -462,25 +415,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb2">
 		      <div class="inner">
-			<audio id="tb2sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/b.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc2">
 		      <div class="inner">
-			<audio id="tc2sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/b.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td2">
 		      <div class="inner">
-			<audio id="td2sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/b.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -506,25 +450,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb3">
 		      <div class="inner">
-			<audio id="tb3sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/c.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc3">
 		      <div class="inner">
-			<audio id="tc3sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/c.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td3">
 		      <div class="inner">
-			<audio id="td3sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/c.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -550,25 +485,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb4">
 		      <div class="inner">
-			<audio id="tb4sample">
-			<source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/d.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc4">
 		      <div class="inner">
-			<audio id="tc4sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/d.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td4">
 		      <div class="inner">
-			<audio id="td4sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/d.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -594,25 +520,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb5">
 		      <div class="inner">
-			<audio id="tb5sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/e.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc5">
 		      <div class="inner">
-			<audio id="tc5sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/e.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td5">
 		      <div class="inner">
-			<audio id="td5sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/e.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -638,25 +555,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb6">
 		      <div class="inner">
-			<audio id="tb6sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/f.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc6">
 		      <div class="inner">
-			<audio id="tc6sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/f.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td6">
 		      <div class="inner">
-			<audio id="td6sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/f.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -682,25 +590,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb7">
 		      <div class="inner">
-			<audio id="tb7sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/g.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc7">
 		      <div class="inner">
-			<audio id="tc7sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/g.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td7">
 		      <div class="inner">
-			<audio id="td7sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/g.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -726,25 +625,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb8">
 		      <div class="inner">
-			<audio id="tb8sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/h.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc8">
 		      <div class="inner">
-			<audio id="tc8sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/h.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td8">
 		      <div class="inner">
-			<audio id="td8sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/h.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -770,25 +660,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb9">
 		      <div class="inner">
-			<audio id="tb9sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/i.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc9">
 		      <div class="inner">
-			<audio id="tc9sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/i.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td9">
 		      <div class="inner">
-			<audio id="td9sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/i.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -814,25 +695,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb10">
 		      <div class="inner">
-			<audio id="tb10sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/j.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc10">
 		      <div class="inner">
-			<audio id="tc10sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/j.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td10">
 		      <div class="inner">
-			<audio id="td10sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/j.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -858,25 +730,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb11">
 		      <div class="inner">
-			<audio id="tb11sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/k.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc11">
 		      <div class="inner">
-			<audio id="tc11sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/k.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td11">
 		      <div class="inner">
-			<audio id="td11sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/k.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -902,25 +765,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb12">
 		      <div class="inner">
-			<audio id="tb12sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/l.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc12">
 		      <div class="inner">
-			<audio id="tc12sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/l.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td12">
 		      <div class="inner">
-			<audio id="td12sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/l.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -946,25 +800,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb13">
 		      <div class="inner">
-			<audio id="tb13sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/m.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc13">
 		      <div class="inner">
-			<audio id="tc13sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/m.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td13">
 		      <div class="inner">
-			<audio id="td13sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/m.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -990,25 +835,16 @@ BufferLoader.prototype.load = function() {
 		    </span>
 		    <div class="playbutton" id="tb14">
 		      <div class="inner">
-			<audio id="tb14sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/n.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton2" id="tc14">
 		      <div class="inner">
-			<audio id="tc14sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/n.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
 		    <div class="playbutton3" id="td14">
 		      <div class="inner">
-			<audio id="td14sample">
-			  <source src="http://www.music.helsinki.fi/tmt/tutkimus/stradfiles/n.wav">
-			</audio>
 			<img src="pictures/speaker.svg" width="100%" height="100%"/>
 		      </div>
 		    </div>
@@ -1068,148 +904,153 @@ BufferLoader.prototype.load = function() {
 		$("div.playbutton").hover(function(){
 		$(this).css("background-color", "yellow");
 		var sample = $(this).attr('id');
-		sample = sample.concat("sample");
-		console.log(sample)
-		switch (sample) {
-		case "tb1sample":
-		document.getElementById(sample).currentTime = 2;
+		di = sample.charAt(2);
+		source = audiocontext.createBufferSource();
+		source.buffer = bufferLoader.bufferList[parseInt(di) - 1];
+		//console.log(di);
+		//console.log(audiocontext);
+		//console.log(source);
+		source.connect(audiocontext.destination);
+		switch (di) {
+		case "1":
+		source.start(0,2);
 		break;
 		default:
-		document.getElementById(sample).currentTime = 0;
+		source.start(0,0);
 		}
-		//document.getElementById(sample).play();
-                source1.start(0);
 		}, function(){
 		$(this).css("background-color", "rgba(189,49,232,1)");
-		var sample = $(this).attr('id');
-		sample = sample.concat("sample");
-		//document.getElementById(sample).pause();
-                source1.stop();
-		document.getElementById(sample).currentTime = 0;
+                source.stop();
 		});
 
 		$("div.playbutton2").hover(function(){
 		$(this).css("background-color", "yellow");
 		var sample = $(this).attr('id');
-		sample = sample.concat("sample");
-		console.log(sample)
-		switch (sample) {
-		case "tc1sample":
-		document.getElementById(sample).currentTime = 35;
+		di = sample.charAt(2);
+		source = audiocontext.createBufferSource();
+		source.buffer = bufferLoader.bufferList[parseInt(di) - 1];
+		//console.log(di);
+		//console.log(audiocontext);
+		//console.log(source);
+		//console.log(bufferLoader.bufferList[parseInt(di) - 1]);
+		source.connect(audiocontext.destination);
+		switch (di) {
+		case "1":
+		source.start(0,35);
 		break;
-		case "tc2sample":
-		document.getElementById(sample).currentTime = 33;
+		case "2":
+		source.start(0,33);
 		break;
-		case "tc3sample":
-		document.getElementById(sample).currentTime = 33;
+		case "3":
+		source.start(0,33);
 		break;
-		case "tc4sample":
-		document.getElementById(sample).currentTime = 33;
+		case "4":
+		source.start(0,33);
 		break;
-		case "tc5sample":
-		document.getElementById(sample).currentTime = 33;
+		case "5":
+		source.start(0,33);
 		break;
-		case "tc6sample":
-		document.getElementById(sample).currentTime = 33;
+		case "6":
+		source.start(0,33);
 		break;
-		case "tc7sample":
-		document.getElementById(sample).currentTime = 29;
+		case "7":
+		source.start(0,29);
 		break;
-		case "tc8sample":
-		document.getElementById(sample).currentTime = 29;
+		case "8":
+		source.start(0,29);
 		break;
-		case "tc9sample":
-		document.getElementById(sample).currentTime = 29;
+		case "9":
+		source.start(0,29);
 		break;
-		case "tc10sample":
-		document.getElementById(sample).currentTime = 34;
+		case "10":
+		source.start(0,34);
 		break;
-		case "tc11sample":
-		document.getElementById(sample).currentTime = 29;
+		case "11":
+		source.start(0,29);
 		break;
-		case "tc12sample":
-		document.getElementById(sample).currentTime = 31;
+		case "12":
+		source.start(0,31);
 		break;
-		case "tc13sample":
-		document.getElementById(sample).currentTime = 32;
+		case "13":
+		source.start(0,32);
 		break;
-		case "tc14sample":
-		document.getElementById(sample).currentTime = 35;
+		case "14":
+		source.start(0,35);
 		break;
 		default:
-		document.getElementById(sample).currentTime = 30;
+		source.start(0,30);
 		}
-		document.getElementById(sample).play();
 		}, function(){
 		$(this).css("background-color", "rgba(67,139,255,1)");
-		var sample = $(this).attr('id');
-		sample = sample.concat("sample");
-		document.getElementById(sample).pause();
+		source.stop();
 		});
 
 		$("div.playbutton3").hover(function(){
 		$(this).css("background-color", "yellow");
 		var sample = $(this).attr('id');
-		sample = sample.concat("sample");
-		console.log(sample)
-		switch (sample) {
-		case "td1sample":
-		document.getElementById(sample).currentTime = 52;
+		di = sample.charAt(2);
+		source = audiocontext.createBufferSource();
+		source.buffer = bufferLoader.bufferList[parseInt(di) - 1];
+		//console.log(di);
+		//console.log(audiocontext);
+		//console.log(source);
+		//console.log(bufferLoader.bufferList[parseInt(di) - 1]);
+		source.connect(audiocontext.destination);
+		switch (di) {
+		case "1":
+		source.start(0,52);
 		break;
-		case "td2sample":
-		document.getElementById(sample).currentTime = 50;
+		case "2":
+		source.start(0,50);
 		break;
-		case "td3sample":
-		document.getElementById(sample).currentTime = 49;
+		case "3":
+		source.start(0,49);
 		break;
-		case "td4sample":
-		document.getElementById(sample).currentTime = 50;
+		case "4":
+		source.start(0,50);
 		break;
-		case "td5sample":
-		document.getElementById(sample).currentTime = 50;
+		case "5":
+		source.start(0,50);
 		break;
-		case "td6sample":
-		document.getElementById(sample).currentTime = 49;
+		case "6":
+		source.start(0,49);
 		break;
-		case "td7sample":
-		document.getElementById(sample).currentTime = 44;
+		case "7":
+		source.start(0,44);
 		break;
-		case "td8sample":
-		document.getElementById(sample).currentTime = 45;
+		case "8":
+		source.start(0,45);
 		break;
-		case "td9sample":
-		document.getElementById(sample).currentTime = 45;
+		case "9":
+		source.start(0,45);
 		break;
-		case "td10sample":
-		document.getElementById(sample).currentTime = 51;
+		case "10":
+		source.start(0,51);
 		break;
-		case "td11sample":
-		document.getElementById(sample).currentTime = 45;
+		case "11":
+		source.start(0,45);
 		break;
-		case "td12sample":
-		document.getElementById(sample).currentTime = 48;
+		case "12":
+		source.start(0,48);
 		break;
-		case "td13sample":
-		document.getElementById(sample).currentTime = 49;
+		case "13":
+		source.start(0,49);
 		break;
-		case "td14sample":
-		document.getElementById(sample).currentTime = 53;
+		case "14":
+		source.start(0,53);
 		break;
 		default:
-		document.getElementById(sample).currentTime = 50;
+		source.start(0,50);
 		}
-		document.getElementById(sample).play();
 		}, function(){
 		$(this).css("background-color", "rgba(49,232,133,1)");
-		var sample = $(this).attr('id');
-		sample = sample.concat("sample");
-		document.getElementById(sample).pause();
+		source.stop();
 		});
 
 		$("div.notebutton").hover(function(){
 		var sample = $(this).attr('id');
 		sample = sample.concat("text");
-		console.log(sample)
+		//console.log(sample)
 		document.getElementById(sample).setAttribute("style", "display:block;z-index:1000");
 		}, function(){
 		var sample = $(this).attr('id');
