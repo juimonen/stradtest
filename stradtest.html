@@ -22,7 +22,7 @@
 	</script>
 
         <script type="text/javascript">
-        // Dokumentin hallintafunktiot
+
         function show(show, hide) {
             document.getElementById(show).style.display='block';
             document.getElementById(hide).style.display='none';
@@ -44,90 +44,90 @@
             document.getElementById('secondsTaken').value = (stopTime.getTime() - startTime.getTime()) / 1000;
         }
 
-          function popUpInstructions() {
-          alert("The test consists of 14 draggable sample columns that " +
-          "play audio when the mouse pointer is hovered on " +
-          "top of the middle parts. From the top part you can " +
-          "drag the samplebox and place it back in the " +
-          "line. To the bottom you can write notes. Your task is to place the sample columns in " +
-          "order from right to left based on how good " +
-        "you consider the samples you hear."); }
+         function popUpInstructions() {
+             alert("The test consists of 14 draggable sample columns that " +
+                   "play audio when the mouse pointer is hovered on " +
+                   "top of the middle parts. From the top part you can " +
+                   "drag the samplebox and place it back in the " +
+                   "line. To the bottom you can write notes. Your task is to place the sample columns in " +
+                   "order from right to left based on how good " +
+                   "you consider the samples you hear."); }
 
-        function BufferLoader(context, urlList, callback) {
-  this.context = context;
-  this.urlList = urlList;
-  this.onload = callback;
-  this.bufferList = new Array();
-  this.loadCount = 0;
-}
+         function BufferLoader(context, urlList, callback) {
+             this.context = context;
+             this.urlList = urlList;
+             this.onload = callback;
+             this.bufferList = new Array();
+             this.loadCount = 0;
+         }
 
-BufferLoader.prototype.loadBuffer = function(url, index) {
-  // Load buffer asynchronously
-  var request = new XMLHttpRequest();
-  request.open("GET", url, true);
-  request.responseType = "arraybuffer";
+         BufferLoader.prototype.loadBuffer = function(url, index) {
+             // Load buffer asynchronously
+             var request = new XMLHttpRequest();
+             request.open("GET", url, true);
+             request.responseType = "arraybuffer";
 
-  var loader = this;
+             var loader = this;
 
-  request.onload = function() {
-    // Asynchronously decode the audio file data in request.response
-    loader.context.decodeAudioData(
-      request.response,
-      function(buffer) {
-        if (!buffer) {
-          alert('error decoding file data: ' + url);
-          return;
-        }
-        loader.bufferList[index] = buffer;
-        if (++loader.loadCount == loader.urlList.length)
-          loader.onload(loader.bufferList);
-      },
-      function(error) {
-        console.error('decodeAudioData error', error);
-      }
-    );
-  }
+             request.onload = function() {
+                 // Asynchronously decode the audio file data in request.response
+                 loader.context.decodeAudioData(
+                     request.response,
+                     function(buffer) {
+                         if (!buffer) {
+                             alert('error decoding file data: ' + url);
+                             return;
+                         }
+                         loader.bufferList[index] = buffer;
+                         if (++loader.loadCount == loader.urlList.length)
+                             loader.onload(loader.bufferList);
+                     },
+                     function(error) {
+                         console.error('decodeAudioData error', error);
+                     }
+                 );
+             }
 
-  request.onerror = function() {
-    alert('BufferLoader: XHR error');
-  }
+             request.onerror = function() {
+                 alert('BufferLoader: XHR error');
+             }
 
-  request.send();
-}
+             request.send();
+         }
 
-BufferLoader.prototype.load = function() {
-  for (var i = 0; i < this.urlList.length; ++i)
-  this.loadBuffer(this.urlList[i], i);
-                      }
-                      
-        window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        audiocontext = new AudioContext();
+         BufferLoader.prototype.load = function() {
+             for (var i = 0; i < this.urlList.length; ++i)
+                 this.loadBuffer(this.urlList[i], i);
+         }
 
-        bufferLoader = new BufferLoader(
-        audiocontext,
-        [
-        'audio/a.wav',
-        'audio/b.wav',
-	'audio/c.wav',
-	'audio/d.wav',
-	'audio/e.wav',
-	'audio/f.wav',
-	'audio/g.wav',
-	'audio/h.wav',
-        'audio/i.wav',
-	'audio/j.wav',
-	'audio/k.wav',
-	'audio/l.wav',
-	'audio/m.wav',
-	'audio/n.wav',
-        ],
-        finishedLoading
-        );
+         window.AudioContext = window.AudioContext || window.webkitAudioContext;
+         audiocontext = new AudioContext();
 
-        bufferLoader.load();
+         bufferLoader = new BufferLoader(
+             audiocontext,
+             [
+                 'audio/a.wav',
+                 'audio/b.wav',
+	         'audio/c.wav',
+	         'audio/d.wav',
+	         'audio/e.wav',
+	         'audio/f.wav',
+	         'audio/g.wav',
+	         'audio/h.wav',
+                 'audio/i.wav',
+	         'audio/j.wav',
+	         'audio/k.wav',
+	         'audio/l.wav',
+	         'audio/m.wav',
+	         'audio/n.wav',
+             ],
+             finishedLoading
+         );
 
-        function finishedLoading(bufferList) {
-        }
+         bufferLoader.load();
+
+         function finishedLoading(bufferList) {
+         }
         </script>
 
     </head>
@@ -180,13 +180,13 @@ BufferLoader.prototype.load = function() {
                       this is unlikely.
                     </ul>
                   </ul>
-                  
+
                   <b>Archiving and usage of the gathered data:</b>
                   <ul style="list-style-type:none">
                     The data is to be made publicly available after the study for
                     other researchers to verify the results and conduct further studies.
                   </ul>
-                  
+
                   <b>Copyright:</b>
                   <ul style="list-style-type:none">
                     By participating this study you give the author (Jaska Uimonen)
@@ -901,198 +901,198 @@ BufferLoader.prototype.load = function() {
             </div>
 
 	    <script>
-		$("div.playbutton").hover(function(){
-		$(this).css("background-color", "yellow");
-		var sample = $(this).attr('id');
-		di = sample.charAt(2);
-		source = audiocontext.createBufferSource();
-		source.buffer = bufferLoader.bufferList[parseInt(di) - 1];
-		//console.log(di);
-		//console.log(audiocontext);
-		//console.log(source);
-		source.connect(audiocontext.destination);
-		switch (di) {
-		case "1":
-		source.start(0,2);
-		break;
-		default:
-		source.start(0,0);
-		}
-		}, function(){
-		$(this).css("background-color", "rgba(189,49,232,1)");
-                source.stop();
-		});
+	     $("div.playbutton").hover(function(){
+		 $(this).css("background-color", "yellow");
+		 var sample = $(this).attr('id');
+		 di = sample.charAt(2);
+		 source = audiocontext.createBufferSource();
+		 source.buffer = bufferLoader.bufferList[parseInt(di) - 1];
+		 //console.log(di);
+		 //console.log(audiocontext);
+		 //console.log(source);
+		 source.connect(audiocontext.destination);
+		 switch (di) {
+		     case "1":
+		         source.start(0,2);
+		         break;
+		     default:
+		         source.start(0,0);
+		 }
+	     }, function(){
+		 $(this).css("background-color", "rgba(189,49,232,1)");
+                 source.stop();
+	     });
 
-		$("div.playbutton2").hover(function(){
-		$(this).css("background-color", "yellow");
-		var sample = $(this).attr('id');
-		di = sample.charAt(2);
-		source = audiocontext.createBufferSource();
-		source.buffer = bufferLoader.bufferList[parseInt(di) - 1];
-		//console.log(di);
-		//console.log(audiocontext);
-		//console.log(source);
-		//console.log(bufferLoader.bufferList[parseInt(di) - 1]);
-		source.connect(audiocontext.destination);
-		switch (di) {
-		case "1":
-		source.start(0,35);
-		break;
-		case "2":
-		source.start(0,33);
-		break;
-		case "3":
-		source.start(0,33);
-		break;
-		case "4":
-		source.start(0,33);
-		break;
-		case "5":
-		source.start(0,33);
-		break;
-		case "6":
-		source.start(0,33);
-		break;
-		case "7":
-		source.start(0,29);
-		break;
-		case "8":
-		source.start(0,29);
-		break;
-		case "9":
-		source.start(0,29);
-		break;
-		case "10":
-		source.start(0,34);
-		break;
-		case "11":
-		source.start(0,29);
-		break;
-		case "12":
-		source.start(0,31);
-		break;
-		case "13":
-		source.start(0,32);
-		break;
-		case "14":
-		source.start(0,35);
-		break;
-		default:
-		source.start(0,30);
-		}
-		}, function(){
-		$(this).css("background-color", "rgba(67,139,255,1)");
-		source.stop();
-		});
+	     $("div.playbutton2").hover(function(){
+		 $(this).css("background-color", "yellow");
+		 var sample = $(this).attr('id');
+		 di = sample.charAt(2);
+		 source = audiocontext.createBufferSource();
+		 source.buffer = bufferLoader.bufferList[parseInt(di) - 1];
+		 //console.log(di);
+		 //console.log(audiocontext);
+		 //console.log(source);
+		 //console.log(bufferLoader.bufferList[parseInt(di) - 1]);
+		 source.connect(audiocontext.destination);
+		 switch (di) {
+		     case "1":
+		         source.start(0,35);
+		         break;
+		     case "2":
+		         source.start(0,33);
+		         break;
+		     case "3":
+		         source.start(0,33);
+		         break;
+		     case "4":
+		         source.start(0,33);
+		         break;
+		     case "5":
+		         source.start(0,33);
+		         break;
+		     case "6":
+		         source.start(0,33);
+		         break;
+		     case "7":
+		         source.start(0,29);
+		         break;
+		     case "8":
+		         source.start(0,29);
+		         break;
+		     case "9":
+		         source.start(0,29);
+		         break;
+		     case "10":
+		         source.start(0,34);
+		         break;
+		     case "11":
+		         source.start(0,29);
+		         break;
+		     case "12":
+		         source.start(0,31);
+		         break;
+		     case "13":
+		         source.start(0,32);
+		         break;
+		     case "14":
+		         source.start(0,35);
+		         break;
+		     default:
+		         source.start(0,30);
+		 }
+	     }, function(){
+		 $(this).css("background-color", "rgba(67,139,255,1)");
+		 source.stop();
+	     });
 
-		$("div.playbutton3").hover(function(){
-		$(this).css("background-color", "yellow");
-		var sample = $(this).attr('id');
-		di = sample.charAt(2);
-		source = audiocontext.createBufferSource();
-		source.buffer = bufferLoader.bufferList[parseInt(di) - 1];
-		//console.log(di);
-		//console.log(audiocontext);
-		//console.log(source);
-		//console.log(bufferLoader.bufferList[parseInt(di) - 1]);
-		source.connect(audiocontext.destination);
-		switch (di) {
-		case "1":
-		source.start(0,52);
-		break;
-		case "2":
-		source.start(0,50);
-		break;
-		case "3":
-		source.start(0,49);
-		break;
-		case "4":
-		source.start(0,50);
-		break;
-		case "5":
-		source.start(0,50);
-		break;
-		case "6":
-		source.start(0,49);
-		break;
-		case "7":
-		source.start(0,44);
-		break;
-		case "8":
-		source.start(0,45);
-		break;
-		case "9":
-		source.start(0,45);
-		break;
-		case "10":
-		source.start(0,51);
-		break;
-		case "11":
-		source.start(0,45);
-		break;
-		case "12":
-		source.start(0,48);
-		break;
-		case "13":
-		source.start(0,49);
-		break;
-		case "14":
-		source.start(0,53);
-		break;
-		default:
-		source.start(0,50);
-		}
-		}, function(){
-		$(this).css("background-color", "rgba(49,232,133,1)");
-		source.stop();
-		});
+	     $("div.playbutton3").hover(function(){
+		 $(this).css("background-color", "yellow");
+		 var sample = $(this).attr('id');
+		 di = sample.charAt(2);
+		 source = audiocontext.createBufferSource();
+		 source.buffer = bufferLoader.bufferList[parseInt(di) - 1];
+		 //console.log(di);
+		 //console.log(audiocontext);
+		 //console.log(source);
+		 //console.log(bufferLoader.bufferList[parseInt(di) - 1]);
+		 source.connect(audiocontext.destination);
+		 switch (di) {
+		     case "1":
+		         source.start(0,52);
+		         break;
+		     case "2":
+		         source.start(0,50);
+		         break;
+		     case "3":
+		         source.start(0,49);
+		         break;
+		     case "4":
+		         source.start(0,50);
+		         break;
+		     case "5":
+		         source.start(0,50);
+		         break;
+		     case "6":
+		         source.start(0,49);
+		         break;
+		     case "7":
+		         source.start(0,44);
+		         break;
+		     case "8":
+		         source.start(0,45);
+		         break;
+		     case "9":
+		         source.start(0,45);
+		         break;
+		     case "10":
+		         source.start(0,51);
+		         break;
+		     case "11":
+		         source.start(0,45);
+		         break;
+		     case "12":
+		         source.start(0,48);
+		         break;
+		     case "13":
+		         source.start(0,49);
+		         break;
+		     case "14":
+		         source.start(0,53);
+		         break;
+		     default:
+		         source.start(0,50);
+		 }
+	     }, function(){
+		 $(this).css("background-color", "rgba(49,232,133,1)");
+		 source.stop();
+	     });
 
-		$("div.notebutton").hover(function(){
-		var sample = $(this).attr('id');
-		sample = sample.concat("text");
-		//console.log(sample)
-		document.getElementById(sample).setAttribute("style", "display:block;z-index:1000");
-		}, function(){
-		var sample = $(this).attr('id');
-		sample = sample.concat("text");
-		document.getElementById(sample).setAttribute("style", "display:none");
-		});
-	      </script>
+	     $("div.notebutton").hover(function(){
+		 var sample = $(this).attr('id');
+		 sample = sample.concat("text");
+		 //console.log(sample)
+		 document.getElementById(sample).setAttribute("style", "display:block;z-index:1000");
+	     }, function(){
+		 var sample = $(this).attr('id');
+		 sample = sample.concat("text");
+		 document.getElementById(sample).setAttribute("style", "display:none");
+	     });
+	    </script>
 
-	      <script>
-		$( "#stradtesti" ).submit(function(event) {
-		stopTimer();
-		var idsInOrder1 = $("#sortable").sortable("toArray");
-		$('#results1').val(idsInOrder1);
-		});
-	      </script>
+	    <script>
+	     $( "#stradtesti" ).submit(function(event) {
+		 stopTimer();
+		 var idsInOrder1 = $("#sortable").sortable("toArray");
+		 $('#results1').val(idsInOrder1);
+	     });
+	    </script>
 
-	      <script>
-		$('#sortable').sortable({
-		update:function(event, ui){
-		}
-		});
+	    <script>
+	     $('#sortable').sortable({
+		 update:function(event, ui){
+		 }
+	     });
 
-		function prepareLists() {
-		var i, order = [];
-		for (i = 0; i < 14; i++) {
-				order[i] = i;
-		}
+	     function prepareLists() {
+		 var i, order = [];
+		 for (i = 0; i < 14; i++) {
+		     order[i] = i;
+		 }
 
-		order.sort(function () {
-		    return Math.random() - 0.5;
-		});
+		 order.sort(function () {
+		     return Math.random() - 0.5;
+		 });
 
-		for (i = 0; i < 14; i++) {
-		   var moveFromIndex = i;
-		   var moveToIndex = order[i];
-		   var $moveItem = $("#sortable li:eq(" + moveFromIndex + ")");
-		   $('#sortable').sortable('option','update')(null, {
-		   item: $($moveItem).before($("#sortable li:eq(" + moveToIndex + ")"))
-		   });
-		}
-	        }
-	      </script>
+		 for (i = 0; i < 14; i++) {
+		     var moveFromIndex = i;
+		     var moveToIndex = order[i];
+		     var $moveItem = $("#sortable li:eq(" + moveFromIndex + ")");
+		     $('#sortable').sortable('option','update')(null, {
+		         item: $($moveItem).before($("#sortable li:eq(" + moveToIndex + ")"))
+		     });
+		 }
+	     }
+	    </script>
 
         </form>
 
